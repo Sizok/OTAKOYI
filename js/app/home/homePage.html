@@ -1,0 +1,49 @@
+<div class="inner-body-container">
+  <div class="left-navbar">
+    <div class="left-navbar-title"><span>Main</span></div>
+    <div class="left-navbar-body">
+      <ul class="navbar-body-list">
+        <li><span>Overview</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="news-out-block">
+      <div class="news-block">
+        <div class="news-block-inner">
+          <div class="news-title-item"><span>Vacansies</span></div>
+          <div class="news-block-body">
+            <form ng-submit="$ctrl.getStatistic()">
+              <ul class="news-list">
+                <li ng-repeat="item in $ctrl.vacansion track by $index " data-ng-init="$ctrl.statistic[$index]= {}">
+                  <div class="news-title-out-block">
+                    <label class="news-title" data-ng-init="$ctrl.statistic[$index].name=item">{{item}}
+                      <input class="number-input-style" type="number" name="input" data-ng-init="$ctrl.statistic[$index].number=0" ng-model="$ctrl.statistic[$index].number" min="0" max="10" required>
+                    </label>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+              </ul>
+              <button class="add-new-btn" type="submit">Get statistic</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="comment-out-block">
+      <div class="comment-block" ng-if="$ctrl.statisticBase">
+        <div class="comment-title-item"><span>Skills</span></div>
+        <div class="comment-list-body">
+          <ul class="comment-list" id="test">
+            <li ng-repeat="skill in $ctrl.statisticBase track by $index"><span class="comment-item">{{skill.name}} <b>{{skill.number}}</b></span><div class="clearfix"></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="small-device-message">
+    <span class="message">Please login device with high resolution screens.</span>
+  </div>
+</div>
